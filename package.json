@@ -1,0 +1,50 @@
+{
+  "name": "poc-working-with-git-submodules-compiled-css",
+  "author": "Adriano Enache",
+  "license": "MIT",
+  "version": "0.0.0",
+  "description": "Proof of concept (POC) — Compiles Stylus source files and publishes the CSS output to the distribution package via git submodule.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adrianoenache/poc-working-with-git-submodules-compiled-css.git"
+  },
+  "engines": {
+    "node": ">=24.14.1",
+    "npm": ">=11.11.0"
+  },
+  "config": {
+    "env": "prod",
+    "root": "/",
+    "css": {
+      "source": "stylus/entry",
+      "lint": "stylus",
+      "output": "./distribution/css"
+    },
+    "stylus": {
+      "source": "stylus/atomic/core/config",
+      "target": "distribution/stylus-core-config"
+    }
+  },
+  "scripts": {
+    "setup": "node --version && npm --version && npm i && npm run prepare && npm run start",
+    "start": "concurrently -kr \"npm run css-watch\"",
+    "css": "npm run css-lint && npm run css-comp",
+    "css-lint": "node ./tools/stylus-lint.js",
+    "css-comp": "node ./tools/run.js stylus -m -c $npm_package_config_css_source --out $npm_package_config_css_output -I node_modules",
+    "css-watch": "npm run css-comp -- --watch",
+    "export-stylus-core": "cp -r $npm_package_config_stylus_source $npm_package_config_stylus_target",
+    "cleanup-export-stylus-core": "rm -rf $npm_package_config_stylus_target",
+    "npm-reinstall": "node --version && npm --version  && rm -rf node_modules && npm cache clean -f && npm run setup && npm audit fix && npm outdated",
+    "prepare": "husky",
+    "pre-commit": "npm run css-lint"
+  },
+  "dependencies": {
+    "concurrently": "^9.2.1",
+    "dotenv": "^17.4.1",
+    "glob": "^13.0.6",
+    "husky": "^9.1.7",
+    "stlint": "^1.0.65",
+    "stylus": "^0.64.0"
+  }
+}

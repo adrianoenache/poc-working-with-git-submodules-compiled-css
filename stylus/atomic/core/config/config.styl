@@ -1,0 +1,94 @@
+// @stlint-disable
+
+/*
+  Core Package
+*/
+
+corePackage = {
+	viewports: {
+		mobile: {
+			min: 360px,
+			max: 599px,
+			sufix: m,
+			grid-size: 32rem,
+			gutter: 1.6rem,
+			cols: 8
+		},
+		tablet: {
+			min: 600px,
+			max: 1024px,
+			sufix: t,
+			grid-size: 60rem,
+			gutter: 1.6rem,
+			cols: 14
+		},
+		notebook: {
+			min: 1025px,
+			max: 1440px,
+			sufix: n,
+			grid-size: 102.4rem,
+			gutter: 2.4rem,
+			cols: 20
+		},
+		desktop: {
+			min: 1441px,
+			max: 1920px,
+			sufix: d,
+			grid-size: 130rem,
+			gutter: 2.4rem,
+			cols: 20
+		},
+		wide: {
+			min: 1921px,
+			max: auto,
+			sufix: w,
+			grid-size: 140rem,
+			gutter: 2.4rem,
+			cols: 20
+		}
+	}
+}
+
+/*
+	Media Querys
+	360..599 Mobile
+	600..1024 Tablet
+	1025..1440 Notebooks
+	1441..1920 Desktops e Notebooks FullHD
+	>=1921 Wide
+*/
+
+/*
+Mobile
+@media only screen and (min-width dsCorePackage.viewports.mobile.min)
+@media only screen and (max-width dsCorePackage.viewports.mobile.max)
+@media only screen and (min-width dsCorePackage.viewports.mobile.min) and (max-width dsCorePackage.viewports.mobile.max)
+*/
+
+/*
+Tablet
+@media only screen and (min-width dsCorePackage.viewports.tablet.min)
+@media only screen and (max-width dsCorePackage.viewports.tablet.max)
+@media only screen and (min-width dsCorePackage.viewports.tablet.min) and (max-width dsCorePackage.viewports.tablet.max)
+*/
+
+/*
+Notebook
+@media only screen and (min-width dsCorePackage.viewports.notebook.min)
+@media only screen and (max-width dsCorePackage.viewports.notebook.max)
+@media only screen and (min-width dsCorePackage.viewports.notebook.min) and (max-width dsCorePackage.viewports.notebook.max)
+*/
+
+/*
+Desktop
+@media only screen and (min-width dsCorePackage.viewports.desktop.min)
+@media only screen and (max-width dsCorePackage.viewports.desktop.max)
+@media only screen and (min-width dsCorePackage.viewports.desktop.min) and (max-width dsCorePackage.viewports.desktop.max)
+*/
+
+/*
+Wide
+@media only screen and (min-width dsCorePackage.viewports.wide.min)
+@media only screen and (max-width dsCorePackage.viewports.wide.max)
+@media only screen and (min-width dsCorePackage.viewports.wide.min) and (max-width dsCorePackage.viewports.wide.max)
+*/
